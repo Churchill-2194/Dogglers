@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ANDROID/Downloads/android-basics-kotlin-dogglers-app-main/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1235" />
         <entry key="..\:/Users/ANDROID/Downloads/android-basics-kotlin-dogglers-app-main/app/src/main/res/layout/activity_grid_list.xml" value="0.17426545086119555" />
+        <entry key="..\:/Users/ANDROID/Downloads/android-basics-kotlin-dogglers-app-main/app/src/main/res/layout/activity_horizontal_list.xml" value="0.17426545086119555" />
         <entry key="..\:/Users/ANDROID/Downloads/android-basics-kotlin-dogglers-app-main/app/src/main/res/layout/activity_main.xml" value="0.17426545086119555" />
         <entry key="..\:/Users/ANDROID/Downloads/android-basics-kotlin-dogglers-app-main/app/src/main/res/layout/activity_vertical_list.xml" value="0.17426545086119555" />
         <entry key="..\:/Users/ANDROID/Downloads/android-basics-kotlin-dogglers-app-main/app/src/main/res/layout/grid_list_item.xml" value="0.38705035971223023" />
         <entry key="..\:/Users/ANDROID/Downloads/android-basics-kotlin-dogglers-app-main/app/src/main/res/layout/vertical_horizontal_list_item.xml" value="0.33" />
+        <entry key="..\:/Users/ANDROID/Downloads/android-basics-kotlin-dogglers-app-main/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1235" />
+        <entry key="..\:/Users/ANDROID/Downloads/android-basics-kotlin-dogglers-app-main/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1235" />
       </map>
     </option>
   </component>

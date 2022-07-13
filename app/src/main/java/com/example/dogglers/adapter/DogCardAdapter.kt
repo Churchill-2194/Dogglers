@@ -16,61 +16,76 @@
 package com.example.dogglers.adapter
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dogglers.R
 import com.example.dogglers.const.Layout
-import com.example.dogglers.model.Dog
+import com.example.dogglers.data.DataSource
 
 /**
  * Adapter to inflate the appropriate list item layout and populate the view with information
  * from the appropriate data source
  */
-class DogCardAdapter(private val context: Context?):
-    RecyclerView.Adapter<DogCardAdapter.DogCardViewHolder>() {
+class DogCardAdapter(
+    private val context: Context?,
+    private val layout: Int
+): RecyclerView.Adapter<DogCardAdapter.DogCardViewHolder>() {
 
-    class DogCardViewHolder(view: View?): RecyclerView.ViewHolder(view!!)
+    // TODO: Initialize the data using the List found in data/DataSource
+    val data = DataSource.dogs
 
+    /**
+     * Initialize view elements
+     */
+    class DogCardViewHolder(view: View?): RecyclerView.ViewHolder(view!!) {
+        // TODO: Declare and initialize all of the list item UI components
+        val dog_image = view?.findViewById<ImageView>(R.id.dog_image)
+        val dog_name = view?.findViewById<TextView>(R.id.dog_name)
+        val dog_age = view?.findViewById<TextView>(R.id.dog_age)
+        val dog_hoddies = view?.findViewById<TextView>(R.id.dog_hobby)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogCardViewHolder {
-        Layout.GRID
-        Layout.HORIZONTAL
-        Layout.VERTICAL
-        try {
-        } catch (e: Exception) {
+        // TODO: Use a conditional to determine the layout type and set it accordingly.
+        //  if the layout variable is Layout.GRID the grid list item should be used. Otherwise the
+        //  the vertical/horizontal list item should be used.
+        lateinit var adapterLayout: View
+        // TODO Inflate the layout
+        if(layout == Layout.VERTICAL || layout == Layout.HORIZONTAL){
+            adapterLayout = LayoutInflater.from(parent.context)
+                .inflate(R.layout.vertical_horizontal_list_item, parent, false)
+        }else if (layout == Layout.GRID){
+            adapterLayout = LayoutInflater.from(parent.context)
+                .inflate(R.layout.grid_list_item, parent, false)
         }
 
-        return DogCardViewHolder(null)
+        // TODO: Null should not be passed into the view holder. This should be updated to reflect
+        //  the inflated layout.
+        return DogCardViewHolder(adapterLayout)
     }
 
-    override fun getItemCount(): Int = 3 // TODO: return the size of the data set instead of 0
+    override fun getItemCount(): Int {
+        return data.size
+    } // TODO: return the size of the data set instead of 0
 
     override fun onBindViewHolder(holder: DogCardViewHolder, position: Int) {
-        listOf(
-            Dog(
-                R.drawable.tzeitel, "Tzeitel", "7", "sunbathing"
-            ),
-            Dog(
-                R.drawable.leroy, "Leroy", "4", "sleeping in dangerous places"
-            ),
-            Dog(
-                R.drawable.frankie, "Frankie", "2", "stealing socks"
-            ),
-            Dog(
-                R.drawable.nox, "Nox", "8", "meeting new animals"
-            ),
-            Dog(
-                R.drawable.faye, "Faye", "8", "Digging in the garden"
-            ),
-            Dog(
-                R.drawable.bella, "Bella", "14", "Chasing sea foam"
-            )
-        )
-
-        context?.resources
-
+        // TODO: Get the data at the current position
+        val item = data[position]
+        // TODO: Set the image resource for the current dog
+        // TODO: Set the text for the current dog's name
+        // TODO: Set the text for the current dog's age
+        val resources = context?.resources
+        // TODO: Set the text for the current dog's hobbies by passing the hobbies to the
+        //  R.string.dog_hobbies string constant.
+        //  Passing an argument to the string resource looks like:
+        //  resources?.getString(R.string.dog_hobbies, dog.hobbies)
+        holder.dog_image?.setImageResource(item.imageResourceId)
+        holder.dog_name?.text = item.name
+        holder.dog_age?.text = item.age
+        holder.dog_hoddies?.text = item.hobbies
     }
 }
-
-
